@@ -17,5 +17,5 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('validator.urls')),
+    path('api/v1/', include('validator.urls'))
 ]
