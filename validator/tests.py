@@ -4,7 +4,6 @@ from rest_framework.test import APITestCase
 from django.urls import reverse
 
 # Create your tests here.
-
 class IdValidatorTestCase(APITestCase):
     def setUp(self):
         self.url = reverse('validate')

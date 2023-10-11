@@ -9,6 +9,11 @@ This Django Rest Framework (DRF) task is a simple API project that provides endp
 ### Data Extraction: 
 > Extract gender, birthdate, and birth governorate from valid national IDs.
 
+## Technologies 
+- python 3.12.0
+- Django==3.2.5
+- djangorestframework==3.12.4
+
 
 ## Prerequisites
 Before getting started, ensure you have the following prerequisites installed on your system:
@@ -36,5 +41,55 @@ docker compose up
 ## Usage
 ### API Endpoints
 - Validate Egyptian National ID:
-`POST /validate`
+`POST /api/v1/validate`
+To validate an Egyptian national identification number, send a POST request with the national ID in the request body as follows:
+```json
+{
+  "id": "25601011234567"
+}
+```
+The API will respond with a validation result, and if the ID is valid, it will include the extracted data.
+```json
+{
+    "gender": "Female",
+    "birth_date": "1956-01-01",
+    "governorate": "Daqahliya"
+}
+```
 
+### Some Useful Commands
+- start the project
+```bash
+docker compose up
+```
+- stop the project
+```bash
+docker compose down
+```
+- check running containers
+```bash
+docker compose ps
+NAME                COMMAND                  SERVICE             STATUS              PORTS
+djangoapp           "python manage.py ru…"   djangoapp           running             0.0.0.0:8000->8000/tcp
+
+```
+- access backend container
+```bash
+docker exec -it djangoapp /bin/bash
+```
+- list urls 
+> after accessing the backend container
+```bash
+python manage.py show_urls
+```
+or you can run the command directly using
+```bash
+docker compose exec djangoapp python manage.py show_urls
+```
+
+## Test Coverage
+### Api Testing
+- To run test cases (after accessing the backend container)
+```bash
+python manage.py test
+```
