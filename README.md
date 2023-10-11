@@ -37,6 +37,39 @@ docker compose up
 > This command will download the necessary Docker images, build the application, and start the containers.
 - Access the API at http://0.0.0.0:8000
 
+### File Structure
+```
+.
+├── Dockerfile
+├── README.md
+├── db.sqlite3
+├── docker-compose.yml
+├── manage.py
+├── requirements.txt
+├── task
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+└── validator
+    ├── __init__.py
+    ├── admin.py
+    ├── apps.py
+    ├── constants.py
+    ├── migrations
+    │   └── __init__.py
+    ├── models.py
+    ├── serializers.py
+    ├── services
+    │   └── id
+    │       ├── get_birth_data.py
+    │       ├── get_gender.py
+    │       └── get_governorate.py
+    ├── tests.py
+    ├── urls.py
+    └── views.py
+```
 
 ## Usage
 ### API Endpoints
